@@ -1,0 +1,41 @@
+{
+  "name": "tv-remote-control",
+  "version": "1.0.0",
+  "description": "tv remote control simulator running on the browser",
+  "main": "index.js",
+  "contributors": [
+    "rqzheng2015",
+    "mw-kyz 2845562668@qq.com",
+    "Huili Shuang remkr52@gmail.com"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SkylarShuang/tv-remote-control"
+  },
+  "homepage": "https://github.com/SkylarShuang/tv-remote-control/blob/master/README.md",
+  "scripts": {
+    "start": "cd bin && node index.js start"
+  },
+  "bin": {
+    "trc": "bin/index.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkylarShuang/tv-remote-control/issues"
+  },
+  "dependencies": {
+    "adb-commander": "^0.1.9",
+    "commander": "^6.2.1",
+    "express": "^4.17.1",
+    "open": "^7.3.0"
+  },
+  "keywords": [
+    "tv",
+    "tv remote control"
+  ]
+}

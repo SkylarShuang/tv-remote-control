@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <title>TV Remote Control Simulator</title>
+    <style type="text/css">
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        body {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            margin-top: 40px;
+        }
+
+        .btns-box {
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .btn {
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 100px;
+            border: 1px solid grey;
+            border-radius: 100%;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .btn:active {
+            background-color: grey;
+        }
+
+        .btns-outer-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            text-align: center;
+            line-height: 140px;
+            border-radius: 100%;
+            border: 2px solid grey;
+            margin: 0 auto;
+            transform-origin: center;
+            transform: rotate(45deg);
+            overflow: hidden;
+        }
+
+        .btn-circle {
+            float: left;
+            width: 138px;
+            height: 138px;
+            border: 1px solid grey;
+            line-height: 136px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn-circle:active {
+            background-color: grey;
+        }
+
+        .btns-inner-container {
+            position: absolute;
+            width: 138px;
+            height: 138px;
+            border-radius: 100%;
+            border: 2px solid grey;
+            margin-left: 70px;
+            margin-right: 70px;
+            margin-top: 70px;
+            z-index: 99;
+            background-color: #ffffff;
+            cursor: pointer;
+        }
+
+        .btns-inner-container:active {
+            background-color: grey;
+        }
+
+        .no-rotate {
+            display: inline-block;
+            transform-origin: center;
+            transform: rotate(-45deg);
+            user-select: none;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 40px;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <text class="title">TV Remote Control Simulator</text>
+        <div class="btns-outer-container">
+            <div class="btn-circle" data-key="38"><span class="no-rotate" data-key="38">up</span></div>
+            <div class="btn-circle" data-key="39"><span class="no-rotate" data-key="39">right</span></div>
+            <div class="btn-circle" data-key="37"><span class="no-rotate" data-key="37">left</span></div>
+            <div class="btn-circle" data-key="40"><span class="no-rotate" data-key="40">down</span></div>
+            <div class="btns-inner-container" data-key="13"><span class="no-rotate" data-key="13">OK</span></div>
+        </div>
+        <div class="btns-box">
+            <div class="btn btn-right" data-key="66">back</div>
+            <div class="btn btn-left" data-key="16">menu</div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    ; (function () {
+        const oBtnContainer = document.getElementsByClassName('container')[0];
+
+        document.addEventListener('keydown', listenerFunc, false);
+        oBtnContainer.addEventListener('click', clickBtn, false);
+
+        function clickBtn(ev) {
+            const e = ev || window.event,
+                tar = e.target || e.srcElement,
+                keyCode = Number(tar.dataset.key);
+            operateFunc(keyCode);
+        }
+
+        function listenerFunc(ev) {
+            const e = ev || window.event;
+            operateFunc(e.keyCode);
+        }
+
+        function operateFunc(keyCode) {
+            switch (keyCode) {
+                case 37:
+                    sendRequest('left');
+                    break;
+                case 38:
+                    sendRequest('up');
+                    break;
+                case 39:
+                    sendRequest('right');
+                    break;
+                case 40:
+                    sendRequest('down');
+                    break;
+                case 13:
+                    sendRequest('ok');
+                    break;
+                case 16:
+                    sendRequest('menu');
+                    break;
+                case 66:
+                    sendRequest('back');
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        async function sendRequest(path) {
+            try {
+                const res = await fetch(`http://localhost:${location.port}/${path}`);
+                console.log(res)
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    })();
+</script>
+
+</html>
