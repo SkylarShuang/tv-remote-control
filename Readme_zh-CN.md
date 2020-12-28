@@ -6,7 +6,7 @@
 
 `tv-remote-control` 是一个提供给开发者在电脑上实现电视遥控的模拟器，通过它，你可以非常简单地操控连接到电脑上的安卓电视（或其他安卓设备），不再需要输入繁琐的adb指令啦！
 
-### 全局安装插件
+![display](src/common/display.png)### 全局安装插件
 
 首先, 你需要全局安装 `tv-remote-control` 插件。
 

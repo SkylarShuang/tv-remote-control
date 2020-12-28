@@ -2,9 +2,9 @@
 
 ## What is tv-remote-control ?
 
-`tv-remote-control` is a tv remote control simulator running on the browser. With it, you can easily remotely control
-the Android TV or other Android devices connected to your computer just simply by clicking buttons, no more complicated
-adb command since today!
+`tv-remote-control` is a tv remote control simulator running on the browser. With it, you can easily remotely control the Android TV or other Android devices connected to your computer just simply by clicking buttons, no more complicated adb command since today!
+
+![display](src/common/display.png)
 
 ## Getting Started
 
@@ -18,8 +18,7 @@ npm install tv-remote-control -g
 
 ### Connecting Device
 
-Ensure the USB debugging of device (Android system) is allowed, and then connect your device to your computer. Once
-connected, you may use the command below to check if the device connects successfully.
+Ensure the USB debugging of device (Android system) is allowed, and then connect your device to your computer. Once connected, you may use the command below to check if the device connects successfully.
 
 ```sh
 adb devices 
