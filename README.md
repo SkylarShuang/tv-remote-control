@@ -24,6 +24,12 @@ Ensure the USB debugging of device (Android system) is allowed, and then connect
 adb devices 
 ```
 
+Note：make sure your computer has installed the `adb(Android Debug Bridge)` correctly.
+
+If you are a macOS User, you can use [homebrew](https://brew.sh/) to install `adb` by running command `brew install android-platform-tools`.
+
+If you are a Windows User, you may refer to the specific steps on [this document](https://wiki.lineageos.org/adb_fastboot_guide.html) to download and install the `adb`.
+
 ### Launch the tv-remote-control service
 
 You can run the command below to launch the tv-remote-control service.

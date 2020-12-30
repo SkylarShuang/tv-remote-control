@@ -8,11 +8,27 @@
 
 ![display](src/common/display.png)### 全局安装插件
 
+### 全局安装插件
+
 首先, 你需要全局安装 `tv-remote-control` 插件。
 
 ```sh
 npm install tv-remote-control -g
 ```
+
+### 设备连接
+
+确保设备（Android 系统）的USB调试权限已经打开，并且已经成功连接到电脑。你可以使用以下命令检查设备是否成功连接：
+
+```sh
+adb devices 
+```
+
+PS：你需要确保电脑已经正确安装了`adb（Android 调试桥）`。
+
+如果你是macOS用户，你可以通过[homebrew](https://brew.sh/)进行安装，具体步骤可参考[这篇文档](https://www.jianshu.com/p/1b3fb1f27b67)。
+
+如果你是Windows用户，你可以进入[官网](https://developer.android.google.cn/studio/command-line/adb)下载安装`adb`相关资源，正确配置环境变量后即可在命令行使用`adb`指令，具体步骤可参考[这篇文档](https://blog.csdn.net/qq_43506952/article/details/88395194)。
 
 ### 启动服务
 
